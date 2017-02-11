@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Using Open-Source Tools in   Teaching Statistics</title>
+    <meta charset="utf-8">
+    <meta name="author" content="  Chester Ismay   Reed College/Pacific University   Email: chester@pacificu.edu   Twitter: @old_man_chester" />
+    <link rel="stylesheet" href="example.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Using Open-Source Tools in <br> Teaching Statistics
+### <br> Chester Ismay <br> Reed College/Pacific University <br> Email: <a href="mailto:chester@pacificu.edu">chester@pacificu.edu</a> <br> Twitter: <span class="citation">@old_man_chester</span>
+### 2017/02/11 <br><br> Slides available at <a href="http://bit.ly/OTEN17" class="uri">http://bit.ly/OTEN17</a> <br> Source code available at <a href="https://github.com/ismayc/oten-moderndive" class="uri">https://github.com/ismayc/oten-moderndive</a>
+
+---
+
+
+layout: true
+
+.footer[These slides available at &lt;http://bit.ly/OTEN17&gt;]
+
+&lt;!--
+Statistics textbooks are expensive; proprietary statistical software is often even worse. I’ll discuss my use in teaching of and creation of open-source tools designed to provide better resources.
+
+The bookdown R package has allowed for resources to be freely available while also encouraging collaboration and reproducible analyses. It allows one to write just one source document and export to HTML, PDF, and ebook formats. As examples, this package can be used to create textbooks that include GIFs and videos for students to follow along with while using RStudio, to show R code and its results, and to easily update your resource as you need. In this talk, I’ll discuss how I created an open source textbook for my Social Statistics course (available at http://ismayc.github.io/moderndiver-book ) and feedback I received from my students this past semester on using it.
+
+I’ll also discuss why I believe everyone should be using modern R packages in their introductory statistics course and how this textbook can be used as a guide for doing just that. Instructor resources are in development and will be available to further support open access to a modern introductory statistics curriculum. I’m hoping this provides the scientific community with a guide to how you could incorporate modern R packages into your classes and why it is so important to teach your students introductory statistics as an introduction to the practice of reproducible statistical analysis. I’ll also demonstrate how I used an RStudio Server environment with my students that helped with error checking, trouble-shooting, and group projects. Lastly, I hope to convince you that programming is nowhere near as intimidating as you may think it to be and that it really should be a skill that we should be teaching all students, especially those in the scientific fields. The tools that enable us to teach it are improving exponentially and now is the time to get ahead of the curve as we encourage reproducible analysis and embrace open-source tools in education.
+--&gt;
+
+---
+
+
+## My story teaching Intro Stats - Grad school
+
+
+
+&lt;center&gt;
+&lt;a href="https://upload.wikimedia.org/wikipedia/commons/2/2d/NAU_Lumberjacks_wordmark.png"&gt;&lt;img src="images/NAU_Lumberjacks_wordmark.png" width="500"/&gt;&lt;/a&gt; &lt;br&gt;&lt;br&gt;&lt;br&gt; &lt;a href="https://upload.wikimedia.org/wikipedia/commons/b/b3/Arizona_State_University_logo.svg"&gt;&lt;img src="images/asu_logo.jpg" width="500"/&gt; &lt;/a&gt;
+&lt;/center&gt;
+
+---
+
+## My story teaching Intro Stats -  Grad school
+
+&lt;center&gt;
+&lt;a href="https://upload.wikimedia.org/wikipedia/commons/2/24/TI-30XIIS.JPG"&gt;&lt;img src="images/ti2.JPG" width="320"/&gt;&lt;/a&gt; &amp;emsp;&amp;emsp; &lt;a href="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Tabla_t.png/189px-Tabla_t.png"&gt;&lt;img src="images/Table_t.png" width="370"/&gt; &lt;/a&gt;
+&lt;/center&gt;
+
+---
+
+## My story teaching Intro Stats
+
+### Tenure-track stats prof
+
+&lt;center&gt;
+&lt;a href="https://commons.wikimedia.org/wiki/File:Harwood_Memorial_Union,_Ripon_College_view_4.jpg"&gt;&lt;img src="images/riponsnow.jpg" width="670"/&gt; &lt;/a&gt;
+&lt;/center&gt;
+
+---
+
+## My story teaching Intro Stats
+
+### Tenure-track stats prof
+
+&lt;center&gt;
+&lt;a href="http://www.lock5stat.com/StatKey/"&gt;&lt;img src="images/statkey.png" width="500"/&gt; &lt;/a&gt;
+&lt;/center&gt;
+
+---
+
+class: center, middle
+
+# But something was missing...
+
+---
+
+class: center, middle
+
+&lt;img src="images/reed2.png" width="93%" /&gt;
+
+---
+
+class: center, middle
+
+&lt;img src="images/magick/r_in_reed.png" width="693" /&gt;
+
+---
+
+# My story teaching Intro Stats
+
+
+&lt;a href="https://www.pacificu.edu/sites/default/files/Images/PacU_Logo_RGB_000.jpg"&gt;&lt;img src="images/pacu.jpg" width="320"/&gt;&lt;/a&gt; &lt;br&gt; &amp;emsp;&amp;emsp; &amp;emsp;&amp;emsp; &amp;emsp;&amp;emsp; &amp;emsp;&amp;emsp; &amp;emsp;&amp;emsp; &amp;emsp;&amp;emsp; &amp;emsp;&amp;emsp; &lt;a href="http://giphy.com/gifs/sherlock-bbc-one-l0MYM98IwMYDIn1fO"&gt;&lt;img src="images/thinking.gif" width="400"/&gt; &lt;/a&gt;
+
+---
+
+class: center, middle
+
+# ModernDive
+
+## An Introduction to Statistical and Data Sciences via R
+
+***
+
+Authors:  Chester Ismay, Albert Y. Kim and **you**?
+
+## [ModernDive.com](http://moderndive.com)
+
+OR
+
+## [ModernDive.org]((http://moderndive.com)
+
+---
+
+class: center, middle
+
+# Why is this needed?
+
+---
+
+## Guiding Principles of ModernDive
+
+## 1. Blur the lines between lecture and lab
+
+&lt;center&gt;
+&lt;a href="https://giphy.com/gifs/JIX9t2j0ZTN9S"&gt;&lt;img src="images/cat.gif" width="400"/&gt; &lt;/a&gt;
+&lt;/center&gt;
+
+---
+
+## 2. Focus on the data/science research pipeline
+
+&lt;img src="images/hadley.png" width="100%" /&gt;
+
+---
+
+## 3. It's all about the data
+
+### - Use the `tidyverse` with rich, interesting, open data sets
+
+&lt;img src="images/magick/hex_side.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+
+```r
+library(nycflights13)
+library(ggplot2movies)
+library(okcupiddata)
+library(gapminder)
+library(babynames)
+```
+
+
+---
+
+## 4. Use simulation/resampling not probability/large sample approximation
+
+### - Reinforce concepts, not equations, formulas, &amp; probability tables
+
+&lt;!--
+### - Have data visualization be the driver
+--&gt;
+
+&lt;img src="images/tdist.png" width="85%" style="display: block; margin: auto;" /&gt;
+
+---
+
+## 4. Use simulation/resampling not probability/large sample approximation
+
+### - Reinforce concepts, not equations, formulas, and probability tables
+
+### - Have data visualization be the driver
+
+
+&lt;center&gt;
+&lt;a href="http://allendowney.blogspot.com/2016/06/there-is-still-only-one-test.html"&gt;&lt;img src="images/ht.png" width="600"/&gt; &lt;/a&gt;
+&lt;/center&gt;
+
+---
+
+
+## 5. Don’t fence off students from the computation pool, throw them in!
+
+### - Scaffold &amp; support as a good foreign language professor would
+
+&lt;center&gt;
+&lt;a href="http://giphy.com/gifs/pool-diving-synchronized-swimming-pDWtwK7D2IlFu"&gt;&lt;img src="images/giphy2.gif" width="500"/&gt; &lt;/a&gt;
+&lt;/center&gt;
+
+
+---
+
+## 6. Complete reproducibility with `bookdown`
+
+### - Put it all out there
+
+### - Ultimately the best textbook is one you’ve written yourself
+
+&lt;center&gt;
+&lt;a href="http://giphy.com/gifs/oskouioskoui-lotr-gifscapade-3oFyCVxsQn6RBa0r5u"&gt;&lt;img src="images/precious.gif" width="600"/&gt; &lt;/a&gt;
+&lt;/center&gt;
+
+---
+
+class: center, middle
+
+# Teaching R programming
+
+---
+
+## Introducing students to &lt;small&gt;`ggplot2`&lt;/small&gt;
+
+
+
+
+```r
+ggplot(data = simple_ex, mapping = aes(x = A, y = B)) + 
+  geom_point()
+```
+
+---
+
+## Teaching the Grammar of Graphics via "chalk talk"
+
+
+
+
+```r
+ggplot(data = simple_ex, mapping = aes(x = A, y = B)) + 
+  geom_point()
+```
+
+&lt;img src="images/basic1.png" width="85%" style="display: block; margin: auto;" /&gt;
+
+
+---
+
+## Teaching the Grammar of Graphics via "chalk talk"
+
+
+```r
+ggplot(data = simple_ex, mapping = aes(x = A, y = B, color = D)) + 
+  geom_point()
+```
+
+&lt;img src="images/basic1.png" width="85%" style="display: block; margin: auto;" /&gt;
+
+
+---
+
+## Teaching the Grammar of Graphics via chalk talk
+
+
+```r
+ggplot(data = simple_ex, mapping = aes(x = A, y = B, color = D)) + 
+  geom_point()
+```
+
+
+&lt;img src="images/color.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+
+---
+
+## Summarizing diagrams
+
+&lt;img src="images/dplyrchalk.png" width="87%" style="display: block; margin: auto;" /&gt;
+
+
+---
+
+## Reverse engineering
+
+### - What code is needed to produce this plot using the `profiles` data frame in `okcupiddata`?
+
+![](slides_files/figure-html/unnamed-chunk-17-1.png)&lt;!-- --&gt;
+
+&lt;!--
+- What effective data stories can you tell with this data based on the distributions above for males and females?
+--&gt;
+
+---
+
+## The `bookdown` R package
+
+### - Rapid iteration and easily-updateable
+###  - Exports book to multiple formats
+###  - Slick cross-references
+###  - Textbook has versions not editions
+###  - Wikipedia model for intro stats/data science
+
+---
+
+# Finding great, interesting, accessible data sets is hard
+
+&lt;center&gt;
+&lt;a href="http://giphy.com/gifs/justin-g-angry-better-call-saul-exasperation-26tnnpcYVRNJGlHy0"&gt;&lt;img src="images/saul.gif" width="450"/&gt; &lt;/a&gt;
+&lt;/center&gt;
+
+
+---
+
+class: center, middle
+
+# Our recently released &lt;small&gt;`fivethirtyeight`&lt;/small&gt; &lt;br&gt; R package
+
+&lt;center&gt;
+&lt;a href="http://giphy.com/gifs/lil-jon-FBXSMK6fp3kQ"&gt;&lt;img src="images/fallon.gif" width="600"/&gt; &lt;/a&gt;
+&lt;/center&gt;
+
+---
+
+## Features of &lt;small&gt;`fivethirtyeight`&lt;/small&gt;  
+
+### Data sets that balance being
+
+### - *rich enough* to answer meaningful questions with, 
+### - *real enough* to ensure that there is context, and 
+### - *realistic enough* to convey to students that data as it exists &lt;br&gt; "in the wild" often needs processing.
+
+### Easily and quickly accessible to novices, so that we [minimize the prerequisites to research](https://arxiv.org/abs/1507.05346).
+
+---
+
+## Features of &lt;small&gt;`fivethirtyeight`&lt;/small&gt;  
+
+
+```r
+library(fivethirtyeight)
+data(police_locals)
+```
+
+
+&lt;center&gt;
+&lt;a href="https://fivethirtyeight.com/datalab/most-police-dont-live-in-the-cities-they-serve/"&gt;&lt;img src="images/police.png" width="700"/&gt; &lt;/a&gt;
+&lt;/center&gt;
+
+
+---
+
+## DataCamp course
+
+&lt;center&gt;
+&lt;a href="https://www.datacamp.com/courses/effective-data-storytelling-using-the-tidyverse"&gt;&lt;img src="images/datacamp.png" width="630"/&gt; &lt;/a&gt;
+&lt;/center&gt;
+
+
+---
+
+## RStudio Server
+
+&lt;center&gt;
+&lt;img src="images/rs.png" width="690"/&gt;
+&lt;/center&gt;
+
+
+---
+
+## [My Social Statistics course webpage](https://ismayc.github.io/soc301_s2017/)
+
+
+&lt;center&gt;
+&lt;a href="https://ismayc.github.io/soc301_s2017/schedule/"&gt;&lt;img src="images/schedule.png" width="530"/&gt; &lt;/a&gt;
+&lt;/center&gt;
+
+
+---
+
+## What's to come
+
+- Add more interactive shiny apps into the book
+
+- Create more Review Questions at chapter ends using &lt;small&gt;`fivethirtyeight`&lt;/small&gt; and other open data sources
+
+- Design and share instructor resources
+
+- Finish DataCamp course to supplement and assist with more immediate feedback
+
+---
+
+# [ModernDive.com](http://www.moderndive.com)
+
+- &lt;small&gt;Slides created via the R package [**xaringan**](https://github.com/yihui/xaringan) by Yihui Xie.&lt;/small&gt;
+
+- &lt;small&gt;Fork our GitHub repository at &lt;br&gt; &lt;https://github.com/ismayc/moderndiver-book&gt;&lt;/small&gt;
+
+    - &lt;small&gt;Feel free to modify the book as you wish for your own needs! Just please list the authors as "Chester Ismay, Albert Y. Kim, and **YOU**!"&lt;/small&gt;
+
+- &lt;small&gt;Fill out form to receive updates using [MailChimp](http://eepurl.com/cBkItf)&lt;/small&gt;
+
+- &lt;small&gt;Email us at &lt;chester@moderndive.com&gt; or &lt;albert@moderndive.com&gt;&lt;/small&gt;
+    </textarea>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightLines": true
+});
+if (window.HTMLWidgets) slideshow.on('showSlide', function (slide) {setTimeout(function() {window.dispatchEvent(new Event('resize'));}, 100)});</script>
+
+  </body>
+</html>
